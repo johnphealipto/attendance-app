@@ -1,20 +1,10 @@
-import { createStore } from 'redux'
-import reducer from './Reducer';
-import App from './App';
-import actions from './Actions';
+import { createStore } from 'redux';
+import { attendeeList } from './data/AttendeeList';
 
-const AppContainer = connect(
-  function mapStateToProps(state) {
-      return {
-          attendees: state
-      };
-  },
-  function mapDispatchToProps(dispatch) {
-      return bindActionCreators(actions, dispatch);
-  }
-)(App);
+function reducer(state = [], action) {
+  return state;
+};
 
-// createStore(reducer, defaultState);
-const store = createStore(reducer, attendeeList);
+const store = createStore(reducer, attendeeList)
 
-export default AppContainer;
+export default store
