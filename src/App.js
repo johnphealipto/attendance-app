@@ -1,16 +1,18 @@
 import React from 'react';
+import { useSelector, useDispatch} from 'react-redux';
+import { increment, decrement } from './actions/actions';
 
 function App() {
+  const counter = useSelector(state => state.counter);
+  const isLogged = useSelector(state => state.isLogged);
+  const dispatch = useDispatch();
+
   return (
-    <div>
-      <h1>Attendees</h1>
-      <ul>
-        {this.props.attendees.map((attendee, index) =>
-          <li className="attendees__attendee" key={index}>
-            {attendee.name}
-          </li>
-        )}
-      </ul>
+    <div className='App'>
+      <h1>Counter {counter}</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      { isLogged ? <h2>Hi there, I'm logged in</h2> : <h2>Hi there, please login</h2> }
     </div>
   )
 }

@@ -1,10 +1,9 @@
 import { createStore } from 'redux';
-import { attendeeList } from './data/AttendeeList';
+import allReducers from './reducers/indexReducer';
 
-function reducer(state = [], action) {
-  return state;
-};
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-const store = createStore(reducer, attendeeList)
-
-export default store
+export default store;
